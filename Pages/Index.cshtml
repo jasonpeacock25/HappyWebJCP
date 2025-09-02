@@ -1,9 +1,19 @@
 ﻿@page
+@using System.Diagnostics
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    Process[] procs = (Process[])ViewData["ProcessCount"];
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome everyone!</h1>
+    <h1 class="display-4">Processes Running on my CPU</h1>
+    <table>
+        @foreach (var process in procs)
+        {
+           <tr>
+                <td><>@process.ProcessName</td>
+           </tr> 
+        }
+    </table>
 </div>
